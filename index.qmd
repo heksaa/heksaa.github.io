@@ -1,0 +1,166 @@
+---
+title: "Analisis Pengaruh Inflasi Dan Pertumbuhan Ekonomi Terhadap Kemiskinan Di Indonesia Tahun 2013-2022"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Heksa Bintang Pamungkas (220204131)"
+date: 2024-01-17
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+
+
+![Politeknik APP Jakarta](poltekapp.jpg)
+
+
+## Pendahuluan
+
+### Latar Belakang
+
+Negara berkembang umumnya menghadapi tantangan ekonomi seperti kemiskinan, tingkat inflasi tinggi, dan pertumbuhan ekonomi yang lambat. Kemiskinan di Indonesia menjadi masalah umum, mirip dengan kondisi di banyak negara berkembang, terutama yang memiliki populasi padat seperti Indonesia. Kemiskinan dianggap sebagai indikator penting untuk menilai kesehatan ekonomi suatu negara, bukan hanya sebagai permasalahan pribadi dan pemerintah, melainkan juga sebagai masalah bersama yang perlu ditekan bersama-sama.
+
+Inflasi dianggap sebagai indikator kunci dalam perekonomian, di mana upaya untuk menjaga laju inflasi rendah dan stabil diupayakan untuk mencegah dampak negatif terhadap ekonomi secara keseluruhan. Inflasi dapat memiliki dampak positif dan negatif, dan ketidakstabilan inflasi dapat berkontribusi pada kenaikan harga barang dan jasa secara terus-menerus, meningkatkan tingkat kemiskinan di Indonesia.
+
+Tingkat inflasi yang tinggi dapat menyebabkan sulitnya masyarakat memenuhi kebutuhan sehari-hari karena harga barang dan jasa yang tinggi, yang pada gilirannya dapat meningkatkan tingkat kemiskinan. Tingkat inflasi di Indonesia mengalami fluktuasi dari tahun ke tahun, dengan kenaikan signifikan pada tahun 2013 akibat kenaikan harga Bahan Bakar Minyak (BBM) bersubsidi.
+
+Pertumbuhan ekonomi dianggap sebagai masalah jangka panjang yang penting bagi setiap negara. Setiap negara memiliki tujuan untuk mempercepat pertumbuhan ekonominya agar dapat mencapai kesejahteraan yang tinggi. Pertumbuhan ekonomi dianggap sebagai kunci keberhasilan perekonomian suatu negara, dan kegagalan dalam meningkatkan pertumbuhan ekonomi dapat menimbulkan masalah baru seperti tingginya tingkat kemiskinan. Oleh Karena itu Penelitian ini bertujuan untuk menganalisis pengaruh inflasi dan pertumbuhan ekonomi terhadap tingkat kemiskinan di Indonesia.
+
+### Ruang Lingkup
+
+Dalam artikel ini akan diberikan batasan yang akan mencakup tentang inflasi dan pertumbuhan ekonomi terhadap kemiskinan di Indonesia dan ruang lingkup penelitian ini yang hanya menggunakan data dalam kurun waktu 10 tahun (2013-2022). Kegiatan pengambilan data diperoleh melalui Website Kemendag dan Badan Pusat Statistik.
+
+### Rumusan Masalah
+
+Berdasarkan uraian latar belakang masalah diatas, maka terdapat beberapa indikator yang menjadi rumusan masalah dalam penelitian ini. Adapun rumusan masalah tersebut adalah sebagai berikut:
+
+1.	Apakah inflasi berpengaruh terhadap kemiskinan di Indonesia?
+2.	Apakah pertumbuhan ekonomi berpengaruh terhadap kemiskinan di Indonesia?
+
+### Tujuan Penelitian 
+
+Berdasarkan uraian latar belakang, maka dapat disimpulkan bahwa tujuan diterbitkannya artikel ini adalah sebagai berikut:
+
+1.	Untuk Mengetahui apakah inflasi berpengaruh terhadap kemiskinan di Indonesia
+2.	Untuk mengetahui apakah pertumbuhan ekonomi berpengaruh terhadap kemiskinan di Indonesia
+
+### Manfaat Penelitian 
+
+Penelitian ini akan memberikan pemahaman yang lebih mendalam tentang bagaimana inflasi dan pertumbuhan ekonomi berkontribusi terhadap tingkat kemiskinan di Indonesia. Hal ini dapat memberikan wawasan yang diperlukan untuk menyusun kebijakan yang lebih efektif dalam menangani masalah kemiskinan. 
+
+### Package
+
+Packages yang digunakan :
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(WDI)
+```
+
+## Studi Pustaka
+
+### Inflasi
+
+Boediono (2001:161) mendefinisikan inflasi sebagai suatu kecenderungan kenaikan harga secara umum dan terus-menerus. Untuk dianggap sebagai inflasi, kenaikan harga tidak hanya terjadi pada satu atau dua barang, melainkan meluas dan berdampak pada sebagian besar barang lainnya. Fluktuasi inflasi dapat mempengaruhi kegiatan perekonomian, dengan dampak utama berupa penurunan daya beli masyarakat karena nilai riil mata uang mengalami penurunan.
+
+Mankiw (2006:194) menyatakan bahwa inflasi adalah hal yang biasa, namun terdapat variasi signifikan dalam tingkat kenaikan harga. Masyarakat sering menganggap inflasi tinggi sebagai masalah utama dalam perekonomian. Nanga (2005:247) membagi inflasi menjadi empat kategori berdasarkan tingkat keparahannya:
+
+1. Inflasi Ringan: Tingkat inflasi yang masih dapat dikendalikan dan tidak mengganggu keadaan ekonomi secara serius. Inflasi ringan biasanya memiliki tingkat di bawah 10% per tahun.
+2. Inflasi Sedang: Meskipun belum membahayakan kegiatan ekonomi secara keseluruhan, inflasi sedang dapat menurunkan kesejahteraan masyarakat dengan pendapatan tetap. Rentang inflasi sedang berkisar antara 10% hingga 30%.
+3. Inflasi Berat: Inflasi yang sudah mengacaukan kondisi perekonomian. Pada tingkat inflasi berat, orang cenderung menyimpan barang karena mereka enggan menabung akibat bunga bank yang lebih rendah dari tingkat inflasi. Inflasi berat berkisar antara 30% hingga 100% per tahun.
+4. Hyperinflasi:Tingkat inflasi yang sangat tinggi dan sulit dikendalikan bahkan dengan tindakan moneter dan fiskal. Hyperinflasi memiliki nilai di atas 100% per tahun dan dapat menyebabkan kerusakan parah pada perekonomian.
+
+### Pertumbuhan Ekonomi
+
+Pertumbuhan ekonomi, menurut Suryana (2005:5), dapat diartikan sebagai peningkatan Gross Domestic Product (GDP) atau Produk Domestik Regional Bruto (PDRB), tanpa memperhatikan sejauh mana peningkatan tersebut lebih besar atau lebih kecil dibandingkan pertumbuhan penduduk, dan tanpa memperhitungkan adanya perubahan dalam struktur ekonomi. Menurut Jhingan (2004:67), proses pertumbuhan ekonomi dipengaruhi oleh dua jenis faktor, yaitu faktor ekonomi dan non-ekonomi. Beberapa faktor ekonomi yang berpengaruh
+
+### Kemiskinan
+
+Menurut Siregar dan Wahyuniarti (2008:27), kemiskinan dapat diidentifikasi ketika seseorang memiliki pendapatan atau akses yang relatif rendah terhadap barang dan jasa jika dibandingkan dengan rata-rata orang lain dalam perekonomian tersebut. Dalam konteks absolut, seseorang dianggap miskin apabila tingkat pendapatan atau standar hidupnya berada di bawah ambang batas subsistensi yang dapat diukur dengan garis kemiskinan. Menurut Bank Dunia (Rendra:2010), terdapat tiga faktor penyebab kemiskinan, yaitu:
+
+1.Rendahnya Pendapatan dan Aset: Kemiskinan dapat disebabkan oleh pendapatan dan kepemilikan aset yang rendah untuk memenuhi kebutuhan dasar, seperti makanan, tempat tinggal, pakaian, kesehatan, dan pendidikan.
+2. Ketidakmampuan Bersuara dan Ketiadaan Kekuatan: Kemiskinan juga dapat terkait dengan ketidakmampuan seseorang untuk bersuara dan kurangnya kekuatan dalam berinteraksi dengan institusi negara dan masyarakat.
+3. Rentan terhadap Guncangan Ekonomi: Individu yang tidak mampu mengatasi guncangan ekonomi atau rentan terhadap perubahan kondisi ekonomi juga dapat mengalami kemiskinan.
+
+## Metode Penelitian
+
+### Data
+
+| Tahun |  Inflasi  |PDB (Miliar Rupiah)| Persentase Kemiskinan |
+|-------|-----------|-------------------|-----------------------|
+| 2013  |   8,38    |     8.156.497,8   |          11,47        |
+| 2014  |   8,36    |     8.564.866,6   |          10,96        |
+| 2015  |   3,35    |     8.982.517,1   |          11,13        |
+| 2016  |   3,02    |     9.434.613,4   |          10,70        |
+| 2017  |   3,61    |     9.912.928,1   |          10,12        |
+| 2018  |   3,13    |    10.425.851,9   |           9,66        |
+| 2019  |   2,72    |    10.949.155,4   |           9,22        |
+| 2020  |   1,68    |    10.722.999,3   |          10,19        |
+| 2021  |   1,87    |    11.120.077,9   |           9,71        |
+| 2022  |   5,51    |    11.710.397,8   |           9,57        |
+
+### Metode analisis
+
+Metode analisis data menggunakan analisis regresi linier berganda (multiple regression analysis), dan Metode analisis yang digunakan dalam penelitian ini adalah metode kuantitatif dan penjabaran deskriptif. Teknik analisis kuantitatif merupakan analisis yang dilakukan dengan perhitungan angka-angka yang faktor yang mempengaruhi inflasi dan pertumbuhan ekonomi terhadap kemiskinan di Indonesia. Metode deskriptif digunakan untuk membuat gambaran secara sistematis dan faktual mengenai gambaran perkembangan dari setiap variabel dan kemiskinan ekonomi selanjutnya pendekatan yang digunakan adalah kuantitatif dengan mengaplikasikan model regresi linier berganda.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Pada bagian ini dapat ditampilkan data yang telah dikumpulkan :
+```{r}
+setwd('C:/Dokumen/Tugas Metopel/Heksa Bintang Pamungkas')
+read_excel("metopel.xlsx")
+```
+Diketahui :
+
+X = Inflasi
+
+Y = PDB Indonesia
+
+S = Persentase Kemiskinan
+
+```{r}
+library("readxl")
+dat<-read_excel("metopel.xlsx")
+library(ggplot2)
+ggplot(data=dat, aes(x=X+Y, y=S))+
+  geom_point(color='blue', size=2)+
+  labs(title="Plot Tingkat Kemiskinan di Indonesia",
+       x="Inflasi & PDB",
+       y="Kemiskinan di Indonesia",
+       caption = "Sumber:  Badan Pusat Statistik (BPS) dan Kementerian Perdagangan (Kemendag)") +
+  theme_classic()
+```
+
+### Analisis masalah
+
+Hasil regresi ditunjukkan sebagai berikut:
+
+```{r}
+dat<-read_excel("metopel.xlsx")
+reg<-lm(S~X+Y,data=dat)
+summary(reg)
+```
+
+Uji simultan (Uji F) dilakukan untuk menguji seberapa besar pengaruh dari variabel independen yaitu inflasi dan PDB Indonesia terhadap variabel dependen yaitu persentase kemiskinan. Berdasarkan hasil regresi diperoleh nilai F-statistic sebesar 20.55 dengan probabilitas 0.001175 (> α=0,1). Sehingga variabel inflasi dan PDB Indonesia pengaruh signifikan terhadap tingkat kemiskinan Indonesia selama periode 2013-2022.
+
+Nilai R² digunakan untuk menunjukkan seberapa besar pengaruh variabel independen terhadap variabel dependen. Berdasarkan pada tabel di atas, hasil nilai R² menunjukkan bahwa tingkat kemiskinan Indonesia dipengaruhi oleh variabel inflasi dan pertumbuhan ekonomi Indonesia sebesar 0.8545 atau 85,45%. Artinya sebesar 85,45% tingkat kemiskinan di Indonesia dipengaruhi oleh inflasi dan juga pertumbuhan ekonomi di Indonesia. Sedangkan sebanyak 14,55% dipengaruhi oleh variabel lain yang tidak termasuk dalam penelitian ini.
+
+## Kesimpulan
+
+Berdasarkan data penelitian di atas membuktikan bahwa inflasi dan pertumbuhan ekonomi di Indonesia sangat berpengaruh secara signifikan terhadap tingkat kemiskinan di Indonesia. Dengan variabel independen yaitu inflasi dan pertumbuhan ekonomi di Indonesia yang menjadi faktor yang dapat mendorong naik dan turunnya variabel dependen yaitu tingkat kemiskinan di Indonesia. Melalui pengaruhnya terhadap variabel dependen, yaitu tingkat kemiskinan, inflasi dan pertumbuhan ekonomi menjadi faktor kunci yang perlu dipahami dalam konteks perencanaan dan implementasi kebijakan ekonomi di Indonesia.
+
+## Referensi
+
+Badan Pusat Statistik. (2022). Retrieved January 17, 2024, from https://jatim.bps.go.id/indicator/23/344/1/persentase-penduduk-miskin-menurut-provinsi-.html
+
+Kementrian Perdagangan. (2012-2021). Profil komoditas. Kementrian Perdagangan, 33. https://satudata.kemendag.go.id/data-informasi/perdagangan-dalam-negeri/produk-domestik-bruto
+
+Kementrian Perdagangan. (2012-2021). Profil komoditas. Kementrian Perdagangan, 33. https://satudata.kemendag.go.id/data-informasi/perdagangan-dalam-negeri/inflasi-2020
+
+Ningsih, D., & Andiny, P. (2018). Analisis pengaruh inflasi dan pertumbuhan ekonomi terhadap kemiskinan di Indonesia. Jurnal samudra ekonomika, 2(1), 53-61.
+
+Susanto, R., & Pangesti, I. (2021). Pengaruh Inflasi Dan Pertumbuhan Ekonomi Terhadap Tingkat Kemiskinan Di Indonesia. JABE (Journal of Applied Business and Economic), 7(2), 271-278.
+
+Simanungkalit, E. F. B. (2020). Pengaruh inflasi terhadap pertumbuhan ekonomi di Indonesia. Journal of Management: Small and Medium Enterprises (SMEs), 13(3), 327-340.
